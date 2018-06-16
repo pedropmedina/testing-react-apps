@@ -1,7 +1,6 @@
 {
 	"presets": [
 		["env", {
-			"modules": false,
 			"useBuiltIns": true,
 			"uglify": true
 			}

@@ -1,5 +1,6 @@
-console.log('Ready to go');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-if (module.hot) {
-	module.hot.accept();
-}
+import App from './components/App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
