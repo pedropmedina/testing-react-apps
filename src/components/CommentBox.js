@@ -11,7 +11,7 @@ export default class CommentBox extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 
-		// TODO - call an action creator
+		// TODO: call an action creator
 		this.setState({ comment: '' });
 	};
 
