@@ -20,7 +20,7 @@ afterEach(() => {
 
 test('should contain a textarea and button', () => {
 	expect(wrapper.find('textarea').length).toEqual(1);
-	expect(wrapper.find('button').length).toEqual(1);
+	expect(wrapper.find('button').length).toEqual(2);
 });
 
 describe('the textarea', () => {
