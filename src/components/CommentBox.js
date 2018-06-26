@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import * as commentActions from '../actions/comments';
 
+import RequireAuth from './RequireAuth';
+
 class CommentBox extends React.Component {
 	state = { comment: '' };
 
@@ -15,25 +17,30 @@ class CommentBox extends React.Component {
 		event.preventDefault();
 		this.setState({ comment: '' });
 		this.props.saveComment(this.state.comment);
+		this.props.history.push('/');
 	};
 
 	render() {
 		const { comment } = this.state;
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<h4>Add a comment</h4>
-				<textarea value={comment} onChange={this.handleChange} />
-				<div>
-					<button>submit comment</button>
-					<button
-						className="fetch-comments"
-						type="button"
-						onClick={this.props.startFetchComments}
-					>
-						fetch comment
-					</button>
-				</div>
-			</form>
+			<RequireAuth history={this.props.history}>
+				{() => (
+					<form onSubmit={this.handleSubmit}>
+						<h4>Add a comment</h4>
+						<textarea value={comment} onChange={this.handleChange} />
+						<div>
+							<button>submit comment</button>
+							<button
+								className="fetch-comments"
+								type="button"
+								onClick={this.props.startFetchComments}
+							>
+								fetch comment
+							</button>
+						</div>
+					</form>
+				)}
+			</RequireAuth>
 		);
 	}
 }
