@@ -22,7 +22,6 @@ class CommentBox extends React.Component {
 
 	render() {
 		const { comment } = this.state;
-		console.log('hello there');
 		return (
 			<RequireAuth history={this.props.history}>
 				{() => (
